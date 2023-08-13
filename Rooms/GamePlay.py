@@ -1,6 +1,7 @@
 from GameFrame import Level
 from Objects.Ship import Ship
 from Objects.Zork import Zork
+from GameFrame import Globals
 
 class GamePlay(Level):
     def __init__(self, screen, joysticks):
@@ -11,4 +12,4 @@ class GamePlay(Level):
 
             # add objects
         self.add_room_object(Ship(self, 25, 50))
-        self.add_room_object(Zork(self, 25, 25))
+        self.add_room_object(Zork(self, Globals.SCREEN_WIDTH * 3/4, 25))
