@@ -11,5 +11,5 @@ class GamePlay(Level):
         self.set_background_image("Background.png")
 
             # add objects
-        self.add_room_object(Ship(self, Globals.SCREEN_WIDTH * 1/2, Globals.SCREEN_HEIGHT * 1/4))
-        self.add_room_object(Zork(self, Globals.SCREEN_HEIGHT * 3/4, 1/2))
+        self.add_room_object(Ship(self, Globals.SCREEN_WIDTH * 1/2, Globals.SCREEN_HEIGHT * 3/4))
+        self.add_room_object(Zork(self, Globals.SCREEN_WIDTH * 1/2, Globals.SCREEN_HEIGHT * 1/4)) 

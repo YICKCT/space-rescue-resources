@@ -16,6 +16,8 @@ class Ship(RoomObject):
         image = self.load_image("Ship.png")
         self.set_image(image,100,100)
 
+        self.rotate(90)
+
         # register events
         self.handle_key_events = True
         

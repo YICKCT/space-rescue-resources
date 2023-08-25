@@ -1,5 +1,6 @@
 from GameFrame import RoomObject, Globals
 from Objects.Asteroid import Asteroid
+from pygame import transform
 import random 
 
 class Zork(RoomObject):
@@ -18,6 +19,8 @@ class Zork(RoomObject):
         self.set_image(image,135,165)
         self.spawn_asteroid()
 
+        self.rotate(90)
+        
         # set inital movement
         self.y_speed = random.choice([-5,5])
         self.x_speed = random.choice([-5,5])
