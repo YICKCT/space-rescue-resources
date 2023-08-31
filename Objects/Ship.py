@@ -20,6 +20,8 @@ class Ship(RoomObject):
 
         # register events
         self.handle_key_events = True
+
+        Ship_location = (self.x, self.y)
         
     def key_pressed(self, key):
         """

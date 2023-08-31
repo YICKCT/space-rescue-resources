@@ -1,5 +1,6 @@
 from GameFrame import RoomObject, Globals
 from Objects.Asteroid import Asteroid
+from Objects.Minizork import Minizork 
 from pygame import transform
 import random 
 
@@ -18,6 +19,7 @@ class Zork(RoomObject):
         image = self.load_image("Zork.png")
         self.set_image(image,135,165)
         self.spawn_asteroid()
+        self.spawn_minizork()
 
         self.rotate(90)
         
@@ -33,13 +35,23 @@ class Zork(RoomObject):
             self.y_speed *= -1
         elif self.x + self.width > Globals.SCREEN_WIDTH or self.x < 0:
             self.x_speed *=-1 
-        elif self.y > Globals.SCREEN_HEIGHT * 3/4:
+        elif self.y + self.height > Globals.SCREEN_HEIGHT * 2/4:
             self.y_speed *=-1
+
     def step(self):
         """
         Determine what happens to the Dragon on each tick of the game clock
         """
         self.keep_in_room()
+
+    def spawn_minizork(self): 
+        minizorks = [Minizork(self.room, self.x, self.y + self.height/2) ]
+
+        for minizork in minizorks:
+            self.room.add_room_object(minizork)
+
+        minizork_spawn_time = random.randint(60, 120)
+        self.set_timer(minizork_spawn_time, self.spawn_minizork)
     
     def spawn_asteroid(self):
         """
