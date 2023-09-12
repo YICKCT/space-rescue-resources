@@ -1,5 +1,5 @@
 from GameFrame import RoomObject, Globals 
-from Objects import Ship 
+from Objects import Ship
 import random
 
 class Minizork(RoomObject):
@@ -10,10 +10,10 @@ class Minizork(RoomObject):
         image = self.load_image("Zork.png")
         self.set_image(image,70,59)
 
-        traker  = Ship.x, Ship.y
-        self.set_direction(traker, 10)
-
         self.register_collision_object("Ship")
+
+        tracking = Ship_location
+        self.set_direction(tracking, 10)
 
         self.rotate(90)
 

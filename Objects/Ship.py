@@ -16,18 +16,18 @@ class Ship(RoomObject):
         image = self.load_image("Ship.png")
         self.set_image(image,100,100)
 
+        Ship_location = self.room, self.x, self,y 
+
         self.rotate(90)
 
         # register events
         self.handle_key_events = True
 
-        Ship_location = (self.x, self.y)
-        
     def key_pressed(self, key):
         """
         Respond to keypress up and down
         """
-        
+
         if key[pygame.K_w]:
             self.y -= 100
         elif key[pygame.K_s]:
