@@ -1,7 +1,6 @@
 from GameFrame import RoomObject, Globals
 from Objects.Asteroid import Asteroid
 from Objects.Minizork import Minizork 
-from pygame import transform
 import random 
 
 class Zork(RoomObject):
@@ -50,28 +49,35 @@ class Zork(RoomObject):
         for minizork in minizorks:
             self.room.add_room_object(minizork)
 
-        minizork_spawn_time = random.randint(60, 120)
+        minizork_spawn_time = (200)
         self.set_timer(minizork_spawn_time, self.spawn_minizork)
     
     def spawn_asteroid(self):
         """
         Randomly spawns a new Asteroid
         """
-        # spawn Asteroid and add to room
-        asteroids = [
-            Asteroid(self.room, self.x, self.y + self.height/2),
-            Asteroid(self.room, self.x + self.width/2, self.y),
-            Asteroid(self.room, self.x + self.width/2, self.y + self.height),
-            Asteroid(self.room, self.x + self.height, self.y + self.width/2),
+        list = (1,2,3,4,5,6,7,8)
+        
+        spawned_asteroid = random.randint(1,8)
 
-            Asteroid(self.room, self.x, self.y + self.height),
-            Asteroid(self.room, self.x + self.width, self.y),
-            Asteroid(self.room, self.x + self.width, self.y + self.height),
-            Asteroid(self.room, self.x + self.height, self.y + self.width),
-        ]
+        print:("spawned_asteroid")
 
-        for asteroid in asteroids:
-            self.room.add_room_object(asteroid)
+        if spawned_asteroid == 1: 
+            self.room.add_room_object(Asteroid(self.room, self.x, self.y + self.height/2))
+        elif spawned_asteroid == 2: 
+            self.room.add_room_object(Asteroid(self.room, self.x + self.width/2, self.y))
+        elif spawned_asteroid == 3: 
+            self.room.add_room_object(Asteroid(self.room, self.x + self.width/2, self.y + self.height))
+        elif spawned_asteroid == 4: 
+            self.room.add_room_object(Asteroid(self.room, self.x + self.height, self.y + self.width/2))
+        elif spawned_asteroid == 5: 
+            self.room.add_room_object(Asteroid(self.room, self.x, self.y + self.height))
+        elif spawned_asteroid == 6: 
+           self.room.add_room_object(Asteroid(self.room, self.x + self.width, self.y))
+        elif spawned_asteroid == 7:
+            self.room.add_room_object(Asteroid(self.room, self.x + self.width, self.y + self.height))
+        elif spawned_asteroid == 8:
+            self.room.add_room_object(Asteroid(self.room, self.x + self.height, self.y + self.width))
 
          # reset time for next Asteroid spawn
         asteroid_spawn_time = random.randint(60, 120)
